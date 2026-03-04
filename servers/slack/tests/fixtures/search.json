@@ -1,0 +1,21 @@
+{
+  "messages": {
+    "ok": true,
+    "messages": {
+      "matches": [
+        { "iid": "abc123", "ts": "1711480000.000000", "text": "Deploy the new feature", "username": "moritz", "channel": { "id": "C001", "name": "engineering" }, "permalink": "https://moosoft.slack.com/archives/C001/p1711480000" }
+      ],
+      "total": 1,
+      "pagination": { "total_count": 1, "page": 1, "per_page": 20 }
+    }
+  },
+  "files": {
+    "ok": true,
+    "files": {
+      "matches": [
+        { "id": "F001", "name": "spec.pdf", "title": "Product Spec", "mimetype": "application/pdf", "permalink": "https://moosoft.slack.com/files/U001/F001/spec.pdf" }
+      ],
+      "total": 1
+    }
+  }
+}

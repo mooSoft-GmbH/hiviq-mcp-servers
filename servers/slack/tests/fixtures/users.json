@@ -1,0 +1,19 @@
+{
+  "list": {
+    "ok": true,
+    "members": [
+      { "id": "U001", "name": "moritz", "real_name": "Moritz Wilfer", "is_bot": false, "is_admin": true, "profile": { "display_name": "Moritz", "email": "moritz.wilfer@moosoft.de", "title": "Founder", "status_text": "Building", "status_emoji": ":hammer:" } },
+      { "id": "U002", "name": "claude", "real_name": "Claude", "is_bot": true, "profile": { "display_name": "Claude", "title": "AI Agent", "status_text": "Thinking", "status_emoji": ":robot_face:" } }
+    ],
+    "response_metadata": { "next_cursor": "" }
+  },
+  "info": {
+    "ok": true,
+    "user": { "id": "U001", "name": "moritz", "real_name": "Moritz Wilfer", "is_bot": false, "is_admin": true, "tz": "Europe/Berlin", "profile": { "display_name": "Moritz", "email": "moritz.wilfer@moosoft.de", "title": "Founder", "status_text": "Building", "status_emoji": ":hammer:" } }
+  },
+  "presence": { "ok": true, "presence": "active", "online": true, "auto_away": false },
+  "lookup": {
+    "ok": true,
+    "user": { "id": "U001", "name": "moritz", "real_name": "Moritz Wilfer", "is_bot": false, "profile": { "display_name": "Moritz", "email": "moritz.wilfer@moosoft.de" } }
+  }
+}

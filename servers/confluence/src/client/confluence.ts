@@ -77,6 +77,18 @@ export class ConfluenceClient {
     return this.request(`/wiki/api/v2/spaces/${spaceId}`);
   }
 
+  async createSpace(body: {
+    key: string;
+    name: string;
+    description?: { plain: { value: string; representation: "plain" } };
+  }): Promise<Space> {
+    // Space creation is only available in the v1 API
+    return this.request("/wiki/rest/api/space", {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+  }
+
   // ── Pages ───────────────────────────────────────────────────────────────────
 
   async listPages(params?: {

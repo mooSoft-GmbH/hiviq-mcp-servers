@@ -22,7 +22,7 @@ import {
 import { pageTools } from "./domains/pages/tools.js";
 import { handleSearch, handleSearchText } from "./domains/search/handlers.js";
 import { searchTools } from "./domains/search/tools.js";
-import { handleGetSpace, handleListSpaces } from "./domains/spaces/handlers.js";
+import { handleCreateSpace, handleGetSpace, handleListSpaces } from "./domains/spaces/handlers.js";
 import { spaceTools } from "./domains/spaces/tools.js";
 import type { ToolResult } from "./types.js";
 
@@ -78,6 +78,7 @@ export function createServer(client: ConfluenceClient, baseUrl: string): Server 
     const handlers: Record<string, (args: unknown) => Promise<ToolResult>> = {
       list_spaces: (a) => handleListSpaces(client, baseUrl, a),
       get_space: (a) => handleGetSpace(client, baseUrl, a),
+      create_space: (a) => handleCreateSpace(client, baseUrl, a),
       list_pages: (a) => handleListPages(client, baseUrl, a),
       get_page: (a) => handleGetPage(client, baseUrl, a),
       get_child_pages: (a) => handleGetChildPages(client, baseUrl, a),

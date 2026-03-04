@@ -24,4 +24,17 @@ export const spaceTools: Tool[] = [
       required: ["spaceId"],
     },
   },
+  {
+    name: "create_space",
+    description: "Create a new Confluence space.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        key: { type: "string", description: "Unique space key — uppercase letters and digits only (e.g. HIVIQ)" },
+        name: { type: "string", description: "Display name of the space" },
+        description: { type: "string", description: "Optional plain-text description" },
+      },
+      required: ["key", "name"],
+    },
+  },
 ];

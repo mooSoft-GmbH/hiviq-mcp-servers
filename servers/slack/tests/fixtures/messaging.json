@@ -1,0 +1,6 @@
+{
+  "post": { "ok": true, "ts": "1711480000.123456", "channel": "C123456" },
+  "update": { "ok": true, "ts": "1711480000.123456", "channel": "C123456" },
+  "schedule": { "ok": true, "scheduled_message_id": "Q123456", "post_at": 1800000000, "channel": "C123456" },
+  "permalink": { "ok": true, "permalink": "https://moosoft.slack.com/archives/C123456/p1711480000123456", "channel": "C123456" }
+}
