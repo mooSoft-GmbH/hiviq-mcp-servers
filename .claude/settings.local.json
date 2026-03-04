@@ -1,7 +1,38 @@
 {
   "permissions": {
     "allow": [
-      "Bash(gh auth:*)"
+      "Bash(gh auth:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(kubectl:*)",
+      "Bash(docker info:*)",
+      "Bash(export:*)",
+      "Bash(git config:*)",
+      "Bash(echo:*)",
+      "Bash(~/.local/bin/kubectl version:*)",
+      "Bash(KUBECONFIG=\"$HOME/.config/k3d/kubeconfig-hiviq.yaml\" ~/.local/bin/kubectl get:*)",
+      "Bash(__NEW_LINE_c3bbb0319218ee1f__:*)",
+      "Bash(KUBECONFIG=/home/mooritz/.config/k3d/kubeconfig-hiviq.yaml /home/mooritz/.local/bin/kubectl get:*)",
+      "Bash(KUBECONFIG=/home/mooritz/.config/k3d/kubeconfig-hiviq.yaml /home/mooritz/.local/bin/kubectl:*)",
+      "Bash(env:*)",
+      "Bash(__NEW_LINE_d8fe0254f14435b4__ env:*)",
+      "Bash(docker build:*)",
+      "mcp__slack__lookup_user_by_email",
+      "mcp__slack__list_users",
+      "Bash(pkill:*)",
+      "Bash(docker images:*)",
+      "Bash(~/.local/bin/k3d image:*)",
+      "Bash(docker run:*)",
+      "WebSearch",
+      "WebFetch(domain:developer.atlassian.com)",
+      "WebFetch(domain:mcp-atlassian.soomiles.com)",
+      "WebFetch(domain:pypi.org)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:lobehub.com)",
+      "WebFetch(domain:mcp.so)",
+      "Bash(xargs ls:*)",
+      "Bash(bun install:*)",
+      "Bash(~/.bun/bin/bun install:*)",
+      "Bash(~/.bun/bin/bun test:*)"
     ]
   }
 }

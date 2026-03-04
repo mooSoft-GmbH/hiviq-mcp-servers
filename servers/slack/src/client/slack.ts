@@ -24,16 +24,39 @@ export class SlackClient {
     this.fetcher = fetcher;
   }
 
+  // Methods that don't accept application/json and need form encoding
+  private static readonly FORM_METHODS = new Set([
+    "chat.getPermalink",
+    "users.lookupByEmail",
+    "users.getPresence",
+    "files.upload",
+  ]);
+
   private async call<T>(method: string, params: Record<string, unknown> = {}, useUserToken = false): Promise<T> {
     const token = useUserToken && this.userToken ? this.userToken : this.botToken;
+    const useForm = SlackClient.FORM_METHODS.has(method);
+
+    const headers: Record<string, string> = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    let body: string;
+    if (useForm) {
+      headers["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8";
+      body = new URLSearchParams(
+        Object.entries(params)
+          .filter(([, v]) => v !== undefined)
+          .map(([k, v]) => [k, String(v)]),
+      ).toString();
+    } else {
+      headers["Content-Type"] = "application/json; charset=utf-8";
+      body = JSON.stringify(params);
+    }
 
     const res = await this.fetcher(`${SlackClient.BASE}/${method}`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json; charset=utf-8",
-      },
-      body: JSON.stringify(params),
+      headers,
+      body,
     });
 
     if (!res.ok) {

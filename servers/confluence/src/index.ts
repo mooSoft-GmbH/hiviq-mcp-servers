@@ -9,7 +9,7 @@ async function main() {
   const transport = process.env["MCP_TRANSPORT"] ?? "stdio";
 
   if (transport === "http") {
-    startHttpServer(client, config.CONFLUENCE_BASE_URL);
+    await startHttpServer(client, config.CONFLUENCE_BASE_URL);
   } else {
     const server = createServer(client, config.CONFLUENCE_BASE_URL);
     const stdioTransport = new StdioServerTransport();

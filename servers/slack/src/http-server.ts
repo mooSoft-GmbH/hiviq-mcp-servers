@@ -4,9 +4,14 @@ import { createServer } from "./server.js";
 
 const PORT = Number(process.env["MCP_PORT"] ?? 3000);
 
-const sessions = new Map<string, WebStandardStreamableHTTPServerTransport>();
+export async function startHttpServer(client: SlackClient): Promise<void> {
+  const transport = new WebStandardStreamableHTTPServerTransport({
+    sessionIdGenerator: undefined as unknown as (() => string),
+  });
 
-export function startHttpServer(client: SlackClient): void {
+  const mcpServer = createServer(client);
+  await mcpServer.connect(transport);
+
   Bun.serve({
     port: PORT,
     async fetch(req) {
@@ -17,29 +22,6 @@ export function startHttpServer(client: SlackClient): void {
       }
 
       if (url.pathname === "/mcp") {
-        const sessionId = req.headers.get("mcp-session-id");
-
-        if (sessionId) {
-          const existing = sessions.get(sessionId);
-          if (!existing) return new Response("Session not found", { status: 404 });
-          return existing.handleRequest(req);
-        }
-
-        let transport!: WebStandardStreamableHTTPServerTransport;
-        transport = new WebStandardStreamableHTTPServerTransport({
-          sessionIdGenerator: () => crypto.randomUUID(),
-          onsessioninitialized(id) {
-            sessions.set(id, transport);
-            process.stderr.write(`[mcp] session opened: ${id} (active: ${sessions.size})\n`);
-          },
-          onsessionclosed(id) {
-            sessions.delete(id);
-            process.stderr.write(`[mcp] session closed: ${id} (active: ${sessions.size})\n`);
-          },
-        });
-
-        const mcpServer = createServer(client);
-        await mcpServer.connect(transport);
         return transport.handleRequest(req);
       }
 
