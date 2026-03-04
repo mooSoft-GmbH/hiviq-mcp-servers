@@ -247,6 +247,38 @@ export class JiraClient {
     return this.requestV3(`/project/${projectIdOrKey}${this.buildQuery({ ...params })}`);
   }
 
+  async createProject(body: {
+    key: string;
+    name: string;
+    projectTypeKey: string;
+    projectTemplateKey: string;
+    description?: string;
+    leadAccountId?: string;
+    assigneeType?: string;
+  }): Promise<JiraProject> {
+    return this.requestV3("/project", {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+  }
+
+  async updateProject(
+    projectIdOrKey: string,
+    body: { name?: string; description?: string; leadAccountId?: string; assigneeType?: string },
+  ): Promise<JiraProject> {
+    return this.requestV3(`/project/${projectIdOrKey}`, {
+      method: "PUT",
+      body: JSON.stringify(body),
+    });
+  }
+
+  async deleteProject(projectIdOrKey: string, enableUndo?: boolean): Promise<void> {
+    await this.requestV3(
+      `/project/${projectIdOrKey}${this.buildQuery({ enableUndo })}`,
+      { method: "DELETE" },
+    );
+  }
+
   async listProjectComponents(projectIdOrKey: string): Promise<JiraComponent[]> {
     return this.requestV3(`/project/${projectIdOrKey}/components`);
   }
@@ -413,6 +445,21 @@ export class JiraClient {
 
   async getBoardConfiguration(boardId: number): Promise<JiraBoardConfig> {
     return this.requestAgile(`/board/${boardId}/configuration`);
+  }
+
+  async createBoard(body: {
+    name: string;
+    type: string;
+    filterId: number;
+  }): Promise<JiraBoard> {
+    return this.requestAgile("/board", {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+  }
+
+  async deleteBoard(boardId: number): Promise<void> {
+    await this.requestAgile(`/board/${boardId}`, { method: "DELETE" });
   }
 
   // ── Sprints (Agile) ────────────────────────────────────────────────────────

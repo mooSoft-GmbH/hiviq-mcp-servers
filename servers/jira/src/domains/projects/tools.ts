@@ -25,6 +25,67 @@ export const projectTools: Tool[] = [
     },
   },
   {
+    name: "create_project",
+    description:
+      "Create a new Jira project. Requires Jira admin permissions.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        key: {
+          type: "string",
+          description: "Unique project key — uppercase letters (e.g. DEMO)",
+        },
+        name: { type: "string", description: "Project display name" },
+        projectTypeKey: {
+          type: "string",
+          enum: ["software", "business", "service_desk"],
+          description: "Project type (default: software)",
+        },
+        projectTemplateKey: {
+          type: "string",
+          description:
+            "Project template key. Common values: 'com.pyxis.greenhopper.jira:gh-simplified-kanban-classic' (Kanban), 'com.pyxis.greenhopper.jira:gh-simplified-scrum-classic' (Scrum), 'com.pyxis.greenhopper.jira:gh-simplified-basic' (Basic)",
+        },
+        description: { type: "string", description: "Project description" },
+        leadAccountId: {
+          type: "string",
+          description: "Account ID of the project lead (defaults to current user)",
+        },
+      },
+      required: ["key", "name"],
+    },
+  },
+  {
+    name: "update_project",
+    description: "Update an existing Jira project's name, description, or lead.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        projectIdOrKey: { type: "string", description: "Project key or ID" },
+        name: { type: "string", description: "New project name" },
+        description: { type: "string", description: "New description" },
+        leadAccountId: { type: "string", description: "New lead account ID" },
+      },
+      required: ["projectIdOrKey"],
+    },
+  },
+  {
+    name: "delete_project",
+    description:
+      "Delete a Jira project. This moves it to trash (can be restored within 60 days).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        projectIdOrKey: { type: "string", description: "Project key or ID to delete" },
+        enableUndo: {
+          type: "boolean",
+          description: "Allow undo/restore of deletion (default: true)",
+        },
+      },
+      required: ["projectIdOrKey"],
+    },
+  },
+  {
     name: "list_project_components",
     description: "List components for a Jira project.",
     inputSchema: {

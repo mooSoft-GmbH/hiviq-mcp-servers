@@ -43,3 +43,31 @@ export async function handleGetBoardConfiguration(
   const config = await client.getBoardConfiguration(boardId);
   return { content: [{ type: "text", text: formatBoardConfig(config) }] };
 }
+
+const CreateBoardInput = z.object({
+  name: z.string().min(1),
+  type: z.enum(["scrum", "kanban"]),
+  filterId: z.number().int(),
+});
+
+const DeleteBoardInput = z.object({ boardId: z.number().int() });
+
+export async function handleCreateBoard(
+  client: JiraClient,
+  _baseUrl: string,
+  args: unknown,
+): Promise<ToolResult> {
+  const input = CreateBoardInput.parse(args);
+  const board = await client.createBoard(input);
+  return { content: [{ type: "text", text: `Board created:\n\n${formatBoard(board)}` }] };
+}
+
+export async function handleDeleteBoard(
+  client: JiraClient,
+  _baseUrl: string,
+  args: unknown,
+): Promise<ToolResult> {
+  const { boardId } = DeleteBoardInput.parse(args);
+  await client.deleteBoard(boardId);
+  return { content: [{ type: "text", text: `Board ${boardId} deleted.` }] };
+}

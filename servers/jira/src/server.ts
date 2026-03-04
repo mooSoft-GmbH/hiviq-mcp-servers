@@ -42,6 +42,9 @@ import {
 import {
   handleListProjects,
   handleGetProject,
+  handleCreateProject,
+  handleUpdateProject,
+  handleDeleteProject,
   handleListProjectComponents,
   handleListProjectVersions,
 } from "./domains/projects/handlers.js";
@@ -76,6 +79,8 @@ import {
   handleListBoards,
   handleGetBoard,
   handleGetBoardConfiguration,
+  handleCreateBoard,
+  handleDeleteBoard,
 } from "./domains/boards/handlers.js";
 import {
   handleListSprints,
@@ -163,6 +168,9 @@ export function createServer(client: JiraClient, baseUrl: string): Server {
       // Projects
       list_projects: (a) => handleListProjects(client, baseUrl, a),
       get_project: (a) => handleGetProject(client, baseUrl, a),
+      create_project: (a) => handleCreateProject(client, baseUrl, a),
+      update_project: (a) => handleUpdateProject(client, baseUrl, a),
+      delete_project: (a) => handleDeleteProject(client, baseUrl, a),
       list_project_components: (a) => handleListProjectComponents(client, baseUrl, a),
       list_project_versions: (a) => handleListProjectVersions(client, baseUrl, a),
       // Users
@@ -191,6 +199,8 @@ export function createServer(client: JiraClient, baseUrl: string): Server {
       list_boards: (a) => handleListBoards(client, baseUrl, a),
       get_board: (a) => handleGetBoard(client, baseUrl, a),
       get_board_configuration: (a) => handleGetBoardConfiguration(client, baseUrl, a),
+      create_board: (a) => handleCreateBoard(client, baseUrl, a),
+      delete_board: (a) => handleDeleteBoard(client, baseUrl, a),
       // Sprints
       list_sprints: (a) => handleListSprints(client, baseUrl, a),
       get_sprint: (a) => handleGetSprint(client, baseUrl, a),

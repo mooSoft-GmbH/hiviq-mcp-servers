@@ -5,13 +5,6 @@ import { createServer } from "./server.js";
 const PORT = Number(process.env["MCP_PORT"] ?? 3000);
 
 export async function startHttpServer(client: ConfluenceClient, baseUrl: string): Promise<void> {
-  const transport = new WebStandardStreamableHTTPServerTransport({
-    sessionIdGenerator: undefined as unknown as (() => string),
-  });
-
-  const mcpServer = createServer(client, baseUrl);
-  await mcpServer.connect(transport);
-
   Bun.serve({
     port: PORT,
     async fetch(req) {
@@ -22,6 +15,11 @@ export async function startHttpServer(client: ConfluenceClient, baseUrl: string)
       }
 
       if (url.pathname === "/mcp") {
+        const transport = new WebStandardStreamableHTTPServerTransport({
+          sessionIdGenerator: undefined as unknown as (() => string),
+        });
+        const server = createServer(client, baseUrl);
+        await server.connect(transport);
         return transport.handleRequest(req);
       }
 

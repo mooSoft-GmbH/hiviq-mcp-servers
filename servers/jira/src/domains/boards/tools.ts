@@ -41,4 +41,36 @@ export const boardTools: Tool[] = [
       required: ["boardId"],
     },
   },
+  {
+    name: "create_board",
+    description:
+      "Create a new Jira agile board. Requires a saved filter (use create_filter first with a JQL like `project = PROJ ORDER BY rank`).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: "Board name" },
+        type: {
+          type: "string",
+          enum: ["scrum", "kanban"],
+          description: "Board type",
+        },
+        filterId: {
+          type: "number",
+          description: "ID of a saved filter (create one with create_filter)",
+        },
+      },
+      required: ["name", "type", "filterId"],
+    },
+  },
+  {
+    name: "delete_board",
+    description: "Delete a Jira agile board. This action is irreversible.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        boardId: { type: "number", description: "Board ID to delete" },
+      },
+      required: ["boardId"],
+    },
+  },
 ];
