@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcp-jira
+  namespace: hiviq
+  labels:
+    app: mcp-jira
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mcp-jira
+  template:
+    metadata:
+      labels:
+        app: mcp-jira
+    spec:
+      containers:
+        - name: mcp-jira
+          image: hiviq/mcp-jira:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MCP_TRANSPORT
+              value: "http"
+            - name: MCP_PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: jira-credentials
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+      restartPolicy: Always

@@ -1,0 +1,48 @@
+{
+  "list": {
+    "maxResults": 50,
+    "startAt": 0,
+    "isLast": true,
+    "values": [
+      {
+        "id": 1,
+        "name": "Sprint 1",
+        "state": "closed",
+        "startDate": "2024-01-01T00:00:00.000Z",
+        "endDate": "2024-01-14T00:00:00.000Z",
+        "completeDate": "2024-01-14T18:00:00.000Z",
+        "goal": "MVP release"
+      },
+      {
+        "id": 2,
+        "name": "Sprint 2",
+        "state": "active",
+        "startDate": "2024-01-15T00:00:00.000Z",
+        "endDate": "2024-01-28T00:00:00.000Z",
+        "goal": "Auth & permissions"
+      },
+      {
+        "id": 3,
+        "name": "Sprint 3",
+        "state": "future",
+        "goal": "Performance improvements"
+      }
+    ]
+  },
+  "single": {
+    "id": 2,
+    "name": "Sprint 2",
+    "state": "active",
+    "startDate": "2024-01-15T00:00:00.000Z",
+    "endDate": "2024-01-28T00:00:00.000Z",
+    "goal": "Auth & permissions",
+    "originBoardId": 1
+  },
+  "created": {
+    "id": 4,
+    "name": "Sprint 4",
+    "state": "future",
+    "originBoardId": 1,
+    "goal": "Testing sprint"
+  }
+}

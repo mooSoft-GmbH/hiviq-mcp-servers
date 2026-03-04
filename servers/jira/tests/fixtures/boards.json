@@ -1,0 +1,40 @@
+{
+  "list": {
+    "maxResults": 50,
+    "startAt": 0,
+    "isLast": true,
+    "values": [
+      {
+        "id": 1,
+        "name": "PROJ Board",
+        "type": "scrum",
+        "location": { "projectId": 10000, "projectKey": "PROJ", "projectName": "My Project" }
+      },
+      {
+        "id": 2,
+        "name": "OPS Kanban",
+        "type": "kanban",
+        "location": { "projectId": 10001, "projectKey": "OPS", "projectName": "Operations" }
+      }
+    ]
+  },
+  "single": {
+    "id": 1,
+    "name": "PROJ Board",
+    "type": "scrum",
+    "location": { "projectId": 10000, "projectKey": "PROJ", "projectName": "My Project" }
+  },
+  "config": {
+    "id": 1,
+    "name": "PROJ Board",
+    "type": "scrum",
+    "columnConfig": {
+      "columns": [
+        { "name": "To Do", "statuses": [{ "id": "1" }] },
+        { "name": "In Progress", "statuses": [{ "id": "3" }] },
+        { "name": "Done", "statuses": [{ "id": "5" }] }
+      ]
+    },
+    "estimation": { "type": "story_points", "field": { "fieldId": "customfield_10016", "displayName": "Story Points" } }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "list": {
+    "startAt": 0,
+    "maxResults": 50,
+    "total": 2,
+    "values": [
+      {
+        "id": "10000",
+        "key": "PROJ",
+        "name": "My Project",
+        "projectTypeKey": "software",
+        "lead": { "accountId": "user-abc-123", "displayName": "Moritz Wilfer", "active": true }
+      },
+      {
+        "id": "10001",
+        "key": "OPS",
+        "name": "Operations",
+        "projectTypeKey": "service_desk",
+        "lead": { "accountId": "user-def-456", "displayName": "Jane Doe", "active": true }
+      }
+    ]
+  },
+  "single": {
+    "id": "10000",
+    "key": "PROJ",
+    "name": "My Project",
+    "description": "Main development project",
+    "projectTypeKey": "software",
+    "lead": { "accountId": "user-abc-123", "displayName": "Moritz Wilfer", "active": true },
+    "issueTypes": [
+      { "id": "10001", "name": "Story", "subtask": false },
+      { "id": "10002", "name": "Task", "subtask": false },
+      { "id": "10003", "name": "Bug", "subtask": false }
+    ]
+  },
+  "components": [
+    { "id": "10000", "name": "API", "description": "REST API layer" },
+    { "id": "10001", "name": "Frontend", "description": "React frontend" }
+  ],
+  "versions": {
+    "startAt": 0,
+    "maxResults": 50,
+    "total": 2,
+    "values": [
+      { "id": "10000", "name": "1.0.0", "released": false, "archived": false, "releaseDate": "2024-06-01" },
+      { "id": "10001", "name": "0.9.0", "released": true, "archived": false, "releaseDate": "2024-01-15" }
+    ]
+  }
+}
