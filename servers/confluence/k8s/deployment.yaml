@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcp-confluence
+  namespace: hiviq
+  labels:
+    app: mcp-confluence
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mcp-confluence
+  template:
+    metadata:
+      labels:
+        app: mcp-confluence
+    spec:
+      containers:
+        - name: mcp-confluence
+          image: hiviq/mcp-confluence:latest
+          imagePullPolicy: Never   # image is imported directly via k3d
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MCP_TRANSPORT
+              value: "http"
+            - name: MCP_PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: confluence-credentials
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+      restartPolicy: Always
