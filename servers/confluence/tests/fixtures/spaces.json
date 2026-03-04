@@ -1,0 +1,33 @@
+{
+  "list": {
+    "results": [
+      {
+        "id": "1001",
+        "key": "TEAM",
+        "name": "Team Space",
+        "type": "global",
+        "status": "current",
+        "description": { "plain": { "value": "Our main team workspace." } },
+        "_links": { "webui": "/spaces/TEAM" }
+      },
+      {
+        "id": "1002",
+        "key": "ARCH",
+        "name": "Architecture",
+        "type": "global",
+        "status": "current",
+        "_links": { "webui": "/spaces/ARCH" }
+      }
+    ],
+    "_links": {}
+  },
+  "single": {
+    "id": "1001",
+    "key": "TEAM",
+    "name": "Team Space",
+    "type": "global",
+    "status": "current",
+    "description": { "plain": { "value": "Our main team workspace." } },
+    "_links": { "webui": "/spaces/TEAM" }
+  }
+}

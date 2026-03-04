@@ -1,0 +1,26 @@
+{
+  "list": {
+    "results": [
+      {
+        "id": "3001",
+        "status": "current",
+        "createdAt": "2024-03-10T14:00:00.000Z",
+        "authorId": "user-abc",
+        "body": {
+          "storage": {
+            "value": "<p>Great documentation!</p>",
+            "representation": "storage"
+          }
+        }
+      }
+    ],
+    "_links": {}
+  },
+  "created": {
+    "id": "3002",
+    "status": "current",
+    "createdAt": "2024-03-15T10:00:00.000Z",
+    "authorId": "user-abc",
+    "body": { "storage": { "value": "<p>New comment</p>", "representation": "storage" } }
+  }
+}

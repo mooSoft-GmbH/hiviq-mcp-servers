@@ -1,0 +1,33 @@
+{
+  "list": {
+    "results": [
+      {
+        "id": "6001",
+        "title": "Q1 Engineering Update",
+        "spaceId": "1001",
+        "status": "current",
+        "createdAt": "2024-01-31T12:00:00.000Z",
+        "authorId": "user-abc",
+        "version": { "number": 2, "createdAt": "2024-02-01T08:00:00.000Z" },
+        "_links": { "webui": "/blog/2024/01/31/q1-update" }
+      }
+    ],
+    "_links": {}
+  },
+  "single": {
+    "id": "6001",
+    "title": "Q1 Engineering Update",
+    "spaceId": "1001",
+    "status": "current",
+    "createdAt": "2024-01-31T12:00:00.000Z",
+    "authorId": "user-abc",
+    "version": { "number": 2, "createdAt": "2024-02-01T08:00:00.000Z" },
+    "body": {
+      "storage": {
+        "value": "<h2>Highlights</h2><p>We shipped <strong>3 major features</strong> this quarter.</p>",
+        "representation": "storage"
+      }
+    },
+    "_links": { "webui": "/blog/2024/01/31/q1-update" }
+  }
+}

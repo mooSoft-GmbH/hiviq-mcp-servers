@@ -1,0 +1,60 @@
+{
+  "list": {
+    "results": [
+      {
+        "id": "2001",
+        "title": "Getting Started",
+        "spaceId": "1001",
+        "status": "current",
+        "createdAt": "2024-01-15T10:00:00.000Z",
+        "authorId": "user-abc",
+        "version": { "number": 3, "createdAt": "2024-03-01T08:00:00.000Z" },
+        "_links": { "webui": "/pages/2001" }
+      },
+      {
+        "id": "2002",
+        "title": "API Reference",
+        "spaceId": "1001",
+        "parentId": "2001",
+        "status": "current",
+        "createdAt": "2024-02-01T12:00:00.000Z",
+        "authorId": "user-abc",
+        "version": { "number": 1, "createdAt": "2024-02-01T12:00:00.000Z" },
+        "_links": { "webui": "/pages/2002" }
+      }
+    ],
+    "_links": {}
+  },
+  "single": {
+    "id": "2001",
+    "title": "Getting Started",
+    "spaceId": "1001",
+    "status": "current",
+    "createdAt": "2024-01-15T10:00:00.000Z",
+    "authorId": "user-abc",
+    "version": { "number": 3, "createdAt": "2024-03-01T08:00:00.000Z" },
+    "body": {
+      "storage": {
+        "value": "<h1>Welcome</h1><p>This is the <strong>getting started</strong> guide.</p><ul><li>Step 1</li><li>Step 2</li></ul>",
+        "representation": "storage"
+      }
+    },
+    "_links": { "webui": "/pages/2001" }
+  },
+  "ancestors": {
+    "results": [
+      { "id": "1999", "title": "Root Page" },
+      { "id": "2000", "title": "Documentation" }
+    ]
+  },
+  "created": {
+    "id": "2003",
+    "title": "New Page",
+    "spaceId": "1001",
+    "status": "current",
+    "createdAt": "2024-03-15T09:00:00.000Z",
+    "authorId": "user-abc",
+    "version": { "number": 1, "createdAt": "2024-03-15T09:00:00.000Z" },
+    "_links": { "webui": "/pages/2003" }
+  }
+}

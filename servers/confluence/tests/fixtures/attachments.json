@@ -1,0 +1,27 @@
+{
+  "list": {
+    "results": [
+      {
+        "id": "5001",
+        "title": "architecture-diagram.png",
+        "status": "current",
+        "createdAt": "2024-02-10T09:00:00.000Z",
+        "authorId": "user-abc",
+        "mediaType": "image/png",
+        "fileSize": 245760,
+        "_links": { "download": "/download/attachments/2001/architecture-diagram.png", "webui": "/attachments/5001" }
+      },
+      {
+        "id": "5002",
+        "title": "spec.pdf",
+        "status": "current",
+        "createdAt": "2024-02-12T11:00:00.000Z",
+        "authorId": "user-abc",
+        "mediaType": "application/pdf",
+        "fileSize": 1048576,
+        "_links": { "download": "/download/attachments/2001/spec.pdf", "webui": "/attachments/5002" }
+      }
+    ],
+    "_links": {}
+  }
+}

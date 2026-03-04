@@ -1,0 +1,15 @@
+{
+  "list": {
+    "results": [
+      { "id": "4001", "name": "documentation", "prefix": "global" },
+      { "id": "4002", "name": "team", "prefix": "global" }
+    ]
+  },
+  "after_add": {
+    "results": [
+      { "id": "4001", "name": "documentation", "prefix": "global" },
+      { "id": "4002", "name": "team", "prefix": "global" },
+      { "id": "4003", "name": "new-label", "prefix": "global" }
+    ]
+  }
+}

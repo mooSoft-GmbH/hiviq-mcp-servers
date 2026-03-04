@@ -1,0 +1,23 @@
+{
+  "results": [
+    {
+      "content": { "id": "2001", "type": "page", "title": "Getting Started" },
+      "title": "Getting Started",
+      "excerpt": "This is the <strong>getting started</strong> guide",
+      "url": "/pages/2001",
+      "lastModified": "2024-03-01T08:00:00.000Z",
+      "space": { "key": "TEAM", "name": "Team Space" }
+    },
+    {
+      "content": { "id": "2002", "type": "page", "title": "API Reference" },
+      "title": "API Reference",
+      "excerpt": "Full API reference documentation",
+      "url": "/pages/2002",
+      "lastModified": "2024-02-01T12:00:00.000Z",
+      "space": { "key": "TEAM", "name": "Team Space" }
+    }
+  ],
+  "totalSize": 2,
+  "start": 0,
+  "limit": 25
+}
